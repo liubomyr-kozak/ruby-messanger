@@ -1,0 +1,12 @@
+<% @all.each do |print| %>
+	
+	<article class="entire_list">
+ 	<%=print.content%> 
+ 	
+<!--  	buttons to edit and delete -->
+
+	<a href="/<%= print.id %>"><button id="edit">Edit</button></a>
+ 	<a href="/<%= print.id %>/delete"><button id="delete" >Delete</button></a>
+
+ 	</article>
+ <%end%>
