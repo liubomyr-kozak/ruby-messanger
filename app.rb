@@ -3,7 +3,11 @@ require "sinatra/activerecord"
 require './db/config'
 
 class Table<ActiveRecord::Base
-
+  def self.up
+    create_table :tables do |n|
+      n.string :content
+    end
+  end
 end
 
 get '/' do
