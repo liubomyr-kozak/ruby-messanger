@@ -1,0 +1,12 @@
+development:
+  adapter: sqlite3
+  database: db/app.sqlite3.db
+
+production:
+  adapter: postgresql
+  database: dc3d0l639f9ls8
+  username: rhkpjudlwizkee
+  password: xDAJqHHm_oE0ciYpXUKbeZ1krQ
+  port: 5432
+  host: ec2-107-22-238-96.compute-1.amazonaws.com
+
