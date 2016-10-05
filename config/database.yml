@@ -10,3 +10,4 @@ production:
   password: ueFg4ZVGq-Y9lPQMb0QRlmoSZL
   port: 5432
   psql: heroku pg:psql --app ruby-messager DATABASE
+  url: postgres://ggcennoctzrruk:ueFg4ZVGq-Y9lPQMb0QRlmoSZL@ec2-54-221-255-192.compute-1.amazonaws.com:5432/d72fe54392av9j
