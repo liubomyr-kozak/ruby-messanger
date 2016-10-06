@@ -1,0 +1,11 @@
+*.rbc
+*.sassc
+.sass-cache
+.rspec
+/log/*
+/tmp/*
+/db/*.sqlite3
+/coverage/
+/spec/tmp/*
+**.orig
+.idea
