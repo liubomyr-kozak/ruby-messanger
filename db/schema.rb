@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20161005124319) do
 
   create_table "tables", force: :cascade do |t|
     t.string "content"
+    t.string "whenDelete"
   end
 
 end

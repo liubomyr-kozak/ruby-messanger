@@ -7,13 +7,14 @@ class Table<ActiveRecord::Base
 end
 
 get '/' do
-  @all = Table.all
   erb :index
 end
+
 
 post '/index' do
   @data = Table.new
   @data.content = params[:message]
+  @data.whenDelete = params[:whenDelete]
   @data.save
 
   redirect '/display'
@@ -34,6 +35,7 @@ end
 put '/:id' do
   @data1 = Table.find(params[:id])
   @data1.content = params[:item]
+  @data1.whenDelete = params[:whenDelete]
   @data1.save
 
   redirect '/display'

@@ -1,12 +1,12 @@
-<% @all.each do |print| %>
+<% @all.each do |item| %>
 	
 	<article class="entire_list">
- 	<%=print.content%> 
- 	
+ 	<%=item.content%>
+ 	&nbsp; status: <%= item.whenDelete%>&nbsp;&nbsp;
 <!--  	buttons to edit and delete -->
 
-	<a href="/<%= print.id %>"><button id="edit">Edit</button></a>
- 	<a href="/<%= print.id %>/delete"><button id="delete" >Delete</button></a>
+	<a href="/<%= item.id %>"><button id="edit">Edit</button></a>
+ 	<a href="/<%= item.id %>/delete"><button id="delete" >Delete</button></a>
 
  	</article>
  <%end%>
