@@ -8,4 +8,6 @@
 /coverage/
 /spec/tmp/*
 **.orig
-.idea
+
+/vendor/*
+.idea/*
