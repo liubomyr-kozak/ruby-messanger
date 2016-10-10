@@ -3,11 +3,11 @@ development:
   database: db/app.sqlite3.db
 
 production:
-  host: ec2-54-221-255-192.compute-1.amazonaws.com
+  host: ec2-54-163-226-30.compute-1.amazonaws.com
   adapter: postgresql
-  database: d72fe54392av9j
-  username: ggcennoctzrruk
-  password: ueFg4ZVGq-Y9lPQMb0QRlmoSZL
+  database: dba94lijtqhs5i
+  username: zdhtxdbchjpydu
+  password: oqvQ371eBR2KrLIck8xLDmlJEu
   port: 5432
   psql: heroku pg:psql --app ruby-messager DATABASE
-  url: postgres://ggcennoctzrruk:ueFg4ZVGq-Y9lPQMb0QRlmoSZL@ec2-54-221-255-192.compute-1.amazonaws.com:5432/d72fe54392av9j
+  url: postgres://zdhtxdbchjpydu:oqvQ371eBR2KrLIck8xLDmlJEu@ec2-54-163-226-30.compute-1.amazonaws.com:5432/dba94lijtqhs5i
