@@ -1,31 +1,22 @@
-<form action="/<%= @getid.hashId %>" method="post">
-
-<!-- This is a js hack to put, since we cannot directly put a http request. Instead we use it as below -->
-<input type="hidden" name="_method" value="put">
-  <textarea name="item" value = "<%= @getid.id %>" ><%= @getid.content %></textarea>
+<form class="todo-form" action="/<%= @getid.hashId %>" method="post">
 
 
-  <br>
+  <input type="hidden" name="_method" value="put">
+  <input class="new-todo" name="message" placeholder="What message you what left?" autofocus value="<%= @getid.content %>">
 
-  <label for="deleteInHour">
-    <input id="deleteInHour"
-           name="whenDelete"
-           type="radio"
-           value="deleteInHour"
-           <%= @getid.whenDelete == 'deleteInHour' ? 'checked' : '' %>>
-    delete in hour
-  </label>
-  <br>
-  <label for="deleteAfterFirstVisited">
-    <input id="deleteAfterFirstVisited"
-           name="whenDelete"
-           type="radio"
-           value="deleteAfterFirstVisited"
-           <%= @getid.whenDelete == 'deleteAfterFirstVisited' ? 'checked' : '' %>>
-    delete after first visited
-  </label>
-  <br>
+  <div class="control-group">
 
-<input type="submit" value="Edit Item">
-	
+	 <label class="control control--radio">delete in hour
+		<input type="radio" name="whenDelete" value="deleteInHour" <%= @getid.whenDelete == 'deleteInHour' ? 'checked' : '' %>/>
+
+		<div class="control__indicator"></div>
+	 </label>
+	 <label class="control control--radio"> delete after first visited
+		<input type="radio" name="whenDelete" value="deleteAfterFirstVisited" <%= @getid.whenDelete == 'deleteAfterFirstVisited' ? 'checked' : '' %>/>
+
+		<div class="control__indicator"></div>
+	 </label>
+  </div>
+
+  <input class='todoapp_create_btn' type="submit" value=""/>
 </form>

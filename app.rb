@@ -9,9 +9,6 @@ class Table<ActiveRecord::Base
 end
 
 set :root, File.dirname(__FILE__)
-
-
-
 set :public_folder, Proc.new { File.join(root, "public") }
 
 
@@ -107,7 +104,7 @@ end
 
 put '/:id' do
   @data1 = Table.where(hashId: params[:id]).first
-  @data1.content = params[:item]
+  @data1.content = params[:message]
   @data1.whenDelete = params[:whenDelete]
   @data1.save
 
