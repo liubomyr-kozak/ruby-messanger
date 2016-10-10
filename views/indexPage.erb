@@ -1,0 +1,11 @@
+<%= erb :'partial/create' %>
+
+<section class="main">
+  <%= erb :'partial/display' %>
+</section>
+
+<footer class="footer" ng-show="todos.length" >
+	<span class="todo-count"><strong>{{remainingCount}}</strong>
+		<!--<ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>-->
+	</span>
+</footer>

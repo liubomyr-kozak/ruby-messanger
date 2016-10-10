@@ -1,0 +1,12 @@
+<ul class="todo-list">
+  <% @all.each do |item| %>
+
+	  <li>
+		 <div class="view">
+			<label><%=item.content%></label>
+			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
+			<a class="destroy" href="/<%= item.id %>/delete"></a>
+		 </div>
+	  </li>
+  <%end%>
+</ul>

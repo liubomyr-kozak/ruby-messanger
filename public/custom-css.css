@@ -1,0 +1,199 @@
+.todoapp {
+	margin: 90px 0 40px 0;
+}
+
+.todoapp h1 {
+	top: -91px;
+	font-size: 69px;
+}
+
+.new-todo {
+	padding: 16px 60px 16px 16px;
+}
+
+.todo-list li .destroy {
+	right: 0px;
+	width: 17px;
+	height: 24px;
+	padding: 8px 11px 8px 0px;
+	text-decoration: none;
+}
+
+input[type=submit].todoapp_create_btn {
+
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	border: 0 none;
+	cursor: pointer;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzODUuNzA3IDM4NS43MDciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4NS43MDcgMzg1LjcwNzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxnPgoJCQk8cGF0aCBkPSJNMzgyLjgzLDE3Ljk5MWMtMi40LTItNS42LTIuNC04LjQtMS4ybC0zNjUuMiwxNjBjLTYsMi40LTkuNiw4LjQtOS4yLDE1LjJjMC40LDYuOCw0LjQsMTIuNCwxMC44LDE0LjhsMTA2LjgsMzUuMnY5NiAgICAgYzAsOC44LDUuNiwxNi40LDE0LDE4LjhjOC40LDIuOCwxNy42LTAuNCwyMi44LTcuNmw0NC44LTY0LjhsOTQuOCw4MS42YzIuOCwyLjQsNi40LDMuNiwxMC40LDMuNmMyLDAsMy42LTAuNCw1LjItMC44ICAgICBjNS42LTIsOS42LTYuNCwxMC40LTEybDY1LjYtMzMwLjhDMzg2LjAzLDIzLjE5MSwzODQuODMsMTkuOTkxLDM4Mi44MywxNy45OTF6IE0xOTEuMjMsMjY3LjU5MWwtNTAsNzIuNGMtMS42LDIuNC0zLjYsMi00LjgsMS42ICAgICBjLTAuOCwwLTIuOC0xLjItMi44LTMuNnYtMTAxLjZjMC0zLjYtMi02LjQtNS42LTcuNmwtMTEyLjQtMzcuNmwzMjQuOC0xNDJsLTE2MCwxMzEuNmMtMy42LDIuOC00LDgtMS4yLDExLjJjMS42LDIsNCwyLjgsNiwyLjggICAgIGMxLjYsMCwzLjYtMC40LDUuMi0ybDEzOC44LTExNEwxOTEuMjMsMjY3LjU5MXogTTMwNC40MywzNTMuNTkxbC05Ni04Mi40bDE1My42LTIwOS42TDMwNC40MywzNTMuNTkxeiIgZmlsbD0iIzVlNDA1ZSIvPgoJCQk8cGF0aCBkPSJNMTU4LjgzLDE5OC4zOTFsLTEyLjgsMTAuNGMtMy42LDIuOC00LDgtMS4yLDExLjJjMS42LDIsNCwyLjgsNi40LDIuOGMxLjYsMCwzLjYtMC40LDUuMi0xLjZsMTIuOC0xMC40ICAgICBjMy42LTIuOCw0LTgsMS4yLTExLjJDMTY3LjYzLDE5Ni4zOTEsMTYyLjQzLDE5NS45OTEsMTU4LjgzLDE5OC4zOTF6IiBmaWxsPSIjNWU0MDVlIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	box-shadow: 0px 0px 1px 0px #6a4f6a;
+	background-position-x: 6px;
+	background-position-y: 7px;
+}
+
+
+
+.todo-list li:hover .edit_btn{
+	display: block;
+}
+
+.edit_btn {
+	display: none;
+	top: 7px;
+	position: absolute;
+	right: 29px;
+	width: 32px;
+	height: 40px;
+	cursor: pointer;
+	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzNjAuMjA5IDM2MC4yMDkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM2MC4yMDkgMzYwLjIwOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0zNDQuNjA5LDQ3LjUwNWwtMzEuNi0zMS42Yy0xMC0xMC0yMy4yLTE1LjYtMzcuNi0xNS42Yy0xNCwwLTI3LjYsNS42LTM3LjYsMTUuNmwtMjE3LjYsMjE2LjhjLTcuNiw3LjItMTIsMTcuNi0xMiwyOC44ICAgIHY4MGMwLDAsMCwwLTAuNCwwbC01LjIsNC44Yy0zLjIsMy4yLTMuNiw4LTAuNCwxMS4yYzEuNiwxLjYsMy42LDIuNCw2LDIuNGMyLDAsNC0wLjgsNS42LTJsNS4yLTQuOGMwLjQtMC40LDAuOC0wLjgsMC44LTEuMmg3OS4yICAgIGMxMC44LDAsMjAuOC00LjQsMjguNC0xMmwyMTcuMi0yMThDMzY1LjQwOSwxMDEuOTA1LDM2NS40MDksNjcuOTA1LDM0NC42MDksNDcuNTA1eiBNMTA0LjIwOSwzMzUuNTA1Yy0xLjYsMC40LTMuNiwwLjgtNS4yLDAuOCAgICBoLTc0Ljh2LTc0LjhjMC0yLDAuNC0zLjYsMC44LTUuMmMwLjQsMCwwLjgsMCwxLjIsMGgzOHYyOGMwLDYuOCw1LjIsMTIsMTIsMTJoMjhWMzM1LjUwNXogTTEyMC4yMDksMzI1LjEwNXYtMzIuOCAgICBjMC02LjgtNS4yLTEyLTEyLTEyaC0yOHYtMjhjMC02LjgtNS4yLTEyLTEyLTEyaC0zMi44bDE4NC40LTE4My42bDg0LDg0TDEyMC4yMDksMzI1LjEwNXogTTMzMy40MDksMTExLjEwNWwtMTguNCwxOC40bC04NC04NCAgICBsMTguNC0xOC40YzcuMi03LjIsMTYuNC0xMC44LDI2LTEwLjhjMTAsMCwxOS4yLDQsMjYsMTAuOGwzMS42LDMxLjZDMzQ3LjgwOSw3My4xMDUsMzQ3LjgwOSw5Ni43MDUsMzMzLjQwOSwxMTEuMTA1eiIgZmlsbD0iIzNkMzU0MiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+	background-repeat: no-repeat;
+	background-position-x: 8px;
+	background-position-y: 13px;
+}
+/*-----------------     RADIO BTN      --------------*/
+/*https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes*/
+
+.container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.control-group {
+	display: inline-block;
+	text-align: left;
+	margin: 8px 0 -3px 17px;
+}
+.control {
+	display: block;
+	position: relative;
+	padding-left: 30px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	font-size: 18px;
+}
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background: #e6e6e6;
+}
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+.control input:checked ~ .control__indicator {
+	background: #2aa1c0;
+}
+.control:hover input:not([disabled]):checked ~ .control__indicator,
+.control input:checked:focus ~ .control__indicator {
+	background: #0e647d;
+}
+.control input:disabled ~ .control__indicator {
+	background: #e6e6e6;
+	opacity: 0.6;
+	pointer-events: none;
+}
+.control__indicator:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+.control--checkbox .control__indicator:after {
+	left: 8px;
+	top: 4px;
+	width: 3px;
+	height: 8px;
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+.control--checkbox input:disabled ~ .control__indicator:after {
+	border-color: #7b7b7b;
+}
+.control--radio .control__indicator:after {
+	left: 7px;
+	top: 7px;
+	height: 6px;
+	width: 6px;
+	border-radius: 50%;
+	background: #fff;
+}
+.control--radio input:disabled ~ .control__indicator:after {
+	background: #7b7b7b;
+}
+.select {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.select select {
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+	padding: 10px 15px;
+	outline: 0;
+	border: 0;
+	border-radius: 0;
+	background: #e6e6e6;
+	color: #7b7b7b;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.select select::-ms-expand {
+	display: none;
+}
+.select select:hover,
+.select select:focus {
+	color: #000;
+	background: #ccc;
+}
+.select select:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+.select__arrow {
+	position: absolute;
+	top: 16px;
+	right: 15px;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-style: solid;
+	border-width: 8px 5px 0 5px;
+	border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select__arrow,
+.select select:focus ~ .select__arrow {
+	border-top-color: #000;
+}
+.select select:disabled ~ .select__arrow {
+	border-top-color: #ccc;
+}

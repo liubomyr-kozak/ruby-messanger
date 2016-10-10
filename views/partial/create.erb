@@ -1,0 +1,19 @@
+<form class="todo-form" action="/create" method="post">
+  <input class="new-todo" name="message" placeholder="What message you what left?" autofocus>
+
+  <div class="control-group">
+
+	 <label class="control control--radio">delete in hour
+		<input type="radio" name="whenDelete" value="deleteInHour" checked="checked"/>
+
+		<div class="control__indicator"></div>
+	 </label>
+	 <label class="control control--radio"> delete after first visited
+		<input type="radio" name="whenDelete" value="deleteAfterFirstVisited"/>
+
+		<div class="control__indicator"></div>
+	 </label>
+  </div>
+
+  <input class='todoapp_create_btn' type="submit" value=""/>
+</form>
