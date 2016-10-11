@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'sinatra'
-require 'pry'
+#require 'pry'
 require 'rickshaw'
 require "sinatra/activerecord"
 

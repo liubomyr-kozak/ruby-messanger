@@ -1,7 +1,10 @@
+<form class="todo-form" action="/<%= @delid.hashId %>" method="post">
 
-<h4><%= @delid.content %></h4>
-<form action="/<%= @delid.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete">
-</form>
 
+	<div class="new-todo">
+		<span> <%=@delid.content%></span>
+	</div>
+
+	<input class='todoapp_create_btn' type="submit" value=""/>
+</form>
