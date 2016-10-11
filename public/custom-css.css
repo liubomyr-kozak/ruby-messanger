@@ -197,3 +197,32 @@ input[type=submit].todoapp_create_btn {
 .select select:disabled ~ .select__arrow {
 	border-top-color: #ccc;
 }
+
+
+.todo-list li label a{
+	text-decoration: none;
+	color: #4d4d4d;
+}
+
+
+.message_is_deleted{
+	padding: 16px 16px 16px 16px;
+	background: black;
+	color: #fff;
+	font-size: 28px;
+	position: relative;
+}
+
+.message_is_deleted span{
+	height: 40px;
+	width: 40px;
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+}
+
+.message_is_deleted img{
+	height: 100%;
+	width: 100%;
+
+}

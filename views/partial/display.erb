@@ -3,7 +3,7 @@
 
 	  <li>
 		 <div class="view">
-			<label><%=item.content%></label>
+			<label><a href="message/<%= item.hashId %>"><%=item.content%></a></label>
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
 			<a class="destroy" href="/<%= item.id %>/delete"></a>
 		 </div>
