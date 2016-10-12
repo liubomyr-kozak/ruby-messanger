@@ -29,6 +29,11 @@ end
 
 
 post '/create' do
+
+  if params[:message].to_s.strip.length == 0
+    redirect '/'
+  end
+
   @data = Table.new
   @data.content = params[:message]
   @data.whenDelete = params[:whenDelete]
@@ -112,12 +117,12 @@ put '/:id' do
 end
 
 get '/:id/delete' do
-  @delid = Table.find(params[:id])
+  @delid = Table.where(hashId: params[:id]).first
   erb :delete
 end
 
 delete '/:id' do
-  @data2 = Table.find(params[:id])
+  @data2 = Table.where(hashId: params[:id]).first
   @data2.destroy
 
   redirect '/'

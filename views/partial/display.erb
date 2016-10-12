@@ -5,7 +5,9 @@
 		 <div class="view">
 			<a class="message_item" href="message/<%= item.hashId %>"><%=item.content%></a>
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
-			<a class="destroy" href="/<%= item.id %>/delete"></a>
+			<a class="edit_btn" href="/edit/<%= item.passwordIsActive %>"></a>
+			<a class="edit_btn" href="/edit/<%= item.password %>"></a>
+			<a class="destroy" href="/<%= item.hashId %>/delete"></a>
 		 </div>
 	  </li>
   <%end%>
