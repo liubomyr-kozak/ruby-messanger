@@ -5,8 +5,6 @@ class RubyMessanger < ActiveRecord::Migration
       n.string :whenDelete
       n.string :timeStamp
       n.string :hashId
-      n.string :passwordIsActive
-      n.string :password
     end
   end
 end

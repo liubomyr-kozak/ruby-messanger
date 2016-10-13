@@ -3,10 +3,12 @@
 
 	  <li>
 		 <div class="view">
-			<a class="message_item" href="message/<%= item.hashId %>"><%=item.content%></a>
+			<a class="message_item" href="message/<%= item.hashId %>">
+			  <%=item.content%>
+			</a>
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
-			<a class="edit_btn" href="/edit/<%= item.passwordIsActive %>"></a>
-			<a class="edit_btn" href="/edit/<%= item.password %>"></a>
+			<%= item.passwordIsActive %>
+			<%= item.password %>
 			<a class="destroy" href="/<%= item.hashId %>/delete"></a>
 		 </div>
 	  </li>

@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009124719) do
+ActiveRecord::Schema.define(version: 20161012204506) do
 
   create_table "tables", force: :cascade do |t|
     t.string "content"
     t.string "whenDelete"
     t.string "timeStamp"
     t.string "hashId"
+    t.string "passwordIsActive"
+    t.string "password"
   end
 
 end
