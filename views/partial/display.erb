@@ -3,14 +3,31 @@
 
 	  <li>
 		 <div class="view">
-			<a class="message_item" href="message/<%= item.hashId %>">
-			  <%=item.content%>
-			</a>
+
+			<% if item.passwordIsActive != 'on' %>
+				<a class="message_item" href="message/<%= item.hashId %>">
+				  <%= item.content %>
+				</a>
+			<% end %>
+
+			<% if item.passwordIsActive == 'on' %>
+				<div class="message_item ">
+				  <input type="text" class="pass_set_input" placeholder="please put the password"/>
+				  <span class="blur-me">
+				  		<%= item.content %>
+				  </span>
+				</div>
+
+				<!--<a class="message_item" href="message/<%#= item.hashId %>">-->
+				<!---->
+				<!--</a>-->
+			<% end %>
+
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
-			<%= item.passwordIsActive %>
-			<%= item.password %>
+			<%#= item.passwordIsActive %>
+			<%#= item.password %>
 			<a class="destroy" href="/<%= item.hashId %>/delete"></a>
 		 </div>
 	  </li>
-  <%end%>
+  <% end %>
 </ul>

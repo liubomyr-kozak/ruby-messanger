@@ -92,7 +92,12 @@ input[type=submit].todoapp_delete_btn:hover {
 	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAzNjAuMjA5IDM2MC4yMDkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM2MC4yMDkgMzYwLjIwOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0zNDQuNjA5LDQ3LjUwNWwtMzEuNi0zMS42Yy0xMC0xMC0yMy4yLTE1LjYtMzcuNi0xNS42Yy0xNCwwLTI3LjYsNS42LTM3LjYsMTUuNmwtMjE3LjYsMjE2LjhjLTcuNiw3LjItMTIsMTcuNi0xMiwyOC44ICAgIHY4MGMwLDAsMCwwLTAuNCwwbC01LjIsNC44Yy0zLjIsMy4yLTMuNiw4LTAuNCwxMS4yYzEuNiwxLjYsMy42LDIuNCw2LDIuNGMyLDAsNC0wLjgsNS42LTJsNS4yLTQuOGMwLjQtMC40LDAuOC0wLjgsMC44LTEuMmg3OS4yICAgIGMxMC44LDAsMjAuOC00LjQsMjguNC0xMmwyMTcuMi0yMThDMzY1LjQwOSwxMDEuOTA1LDM2NS40MDksNjcuOTA1LDM0NC42MDksNDcuNTA1eiBNMTA0LjIwOSwzMzUuNTA1Yy0xLjYsMC40LTMuNiwwLjgtNS4yLDAuOCAgICBoLTc0Ljh2LTc0LjhjMC0yLDAuNC0zLjYsMC44LTUuMmMwLjQsMCwwLjgsMCwxLjIsMGgzOHYyOGMwLDYuOCw1LjIsMTIsMTIsMTJoMjhWMzM1LjUwNXogTTEyMC4yMDksMzI1LjEwNXYtMzIuOCAgICBjMC02LjgtNS4yLTEyLTEyLTEyaC0yOHYtMjhjMC02LjgtNS4yLTEyLTEyLTEyaC0zMi44bDE4NC40LTE4My42bDg0LDg0TDEyMC4yMDksMzI1LjEwNXogTTMzMy40MDksMTExLjEwNWwtMTguNCwxOC40bC04NC04NCAgICBsMTguNC0xOC40YzcuMi03LjIsMTYuNC0xMC44LDI2LTEwLjhjMTAsMCwxOS4yLDQsMjYsMTAuOGwzMS42LDMxLjZDMzQ3LjgwOSw3My4xMDUsMzQ3LjgwOSw5Ni43MDUsMzMzLjQwOSwxMTEuMTA1eiIgZmlsbD0iIzNkMzU0MiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
 	background-repeat: no-repeat;
 	background-position-x: 8px;
-	background-position-y: 13px;
+	background-position-y: 16px;
+}
+
+
+.blur-me {
+	filter: blur(3px);
 }
 /*-----------------     RADIO BTN      --------------*/
 /*https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes*/
@@ -234,7 +239,7 @@ input[type=submit].todoapp_delete_btn:hover {
 }
 
 
-.todo-list li a.message_item{
+.todo-list li .message_item{
 	text-decoration: none;
 	color: #4d4d4d;
 	word-break: break-all;
@@ -242,11 +247,44 @@ input[type=submit].todoapp_delete_btn:hover {
 	display: block;
 	line-height: 1.2;
 	transition: color 0.4s;
+	position: relative;
 }
-
 .todo-list .view:hover{
 	background: rgba(42, 161, 192, 0.25);
 }
+
+
+.pass_set_input{
+	background: transparent;
+	border: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	font-size: 24px;
+	padding: 15px 60px 15px 17px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.pass_set_input[placeholder]          { color: #333}
+.pass_set_input::-moz-placeholder     { color: #333}
+.pass_set_input:-moz-placeholder      { color: #333}
+.pass_set_input:-ms-input-placeholder { color: #333}
+
+.pass_set_input:active,
+.pass_set_input:focus{
+	opacity: 1;
+}
+
+.pass_set_input:active ~ .blur-me,
+.pass_set_input:focus  ~ .blur-me{
+	opacity: 0;
+}
+
+
 
 
 .message_is_deleted{
