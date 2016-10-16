@@ -77,6 +77,8 @@ get '/' do
   allDirty.each do |item|
     el = destroyRecords(item)
     if el
+
+      AESMessage(item, true)
       @all.push(item)
     end
   end
@@ -137,15 +139,16 @@ before '/message/:id/?:security?' do
       @showItems = Table.where(hashId: params[:id])
       if @showItems.count > 0
         @showItem = destroyRecords(@showItems.first)
+
+        if @showItem.passwordIsActive == 'on'
+          # якщо ми хочемо отримати рекорд по звичному айді але в нас стоїть перевірка на пароль показуємо помилку
+          # ToDo -> можна добавити редірект на повторне введення пароля))) для хітрожопих
+          @showItem = nil
+        end
       else
         @showItem = nil
       end
 
-      if @showItem.passwordIsActive == 'on'
-        # якщо ми хочемо отримати рекорд по звичному айді але в нас стоїть перевірка на пароль показуємо помилку
-        # ToDo -> можна добавити редірект на повторне введення пароля))) для хітрожопих
-        @showItem = nil
-      end
     rescue ActiveRecord::RecordNotFound
       @showItem = nil
     end
@@ -154,6 +157,7 @@ before '/message/:id/?:security?' do
 end
 
 get '/message/:id/?:security?' do
+
   if @showItem
 
     AESMessage(@showItem, true)
@@ -176,11 +180,8 @@ end
 get '/edit/:id' do
   @getid = Table.where(hashId: params[:id]).first
 
-  if @getid[:passwordIsActive] == 'on'
-    @getid.content = AES.encrypt(@getid.content, @getid.password)
-  else
-    @getid.content = AES.encrypt(@getid.content, ' ')
-  end
+
+  AESMessage(@getid, true)
 
   erb :edit
 end
@@ -194,7 +195,9 @@ put '/edit/:id' do
   @data1.passwordIsActive = params[:passwordIsActive]
   @data1.password = params[:password]
 
-  checkAndAddFakeDate(@data1)
+  AESMessage(@data1, false)
+  checkAndAddFakeDate(@data1, @data1.content)
+  checkAndAddFakeId(@data1)
 
   @data1.save
 
@@ -203,6 +206,7 @@ end
 
 get '/:id/delete' do
   @delid = Table.where(hashId: params[:id]).first
+  AESMessage(@delid, true)
   erb :delete
 end
 
