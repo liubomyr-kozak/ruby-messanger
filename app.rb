@@ -3,6 +3,7 @@ require 'sinatra'
 #require 'pry'
 require 'rickshaw'
 require "sinatra/activerecord"
+require "aes"
 
 class Table<ActiveRecord::Base
 
@@ -11,52 +12,6 @@ end
 set :root, File.dirname(__FILE__)
 set :public_folder, Proc.new { File.join(root, "public") }
 
-
-get '/' do
-  allDirty = Table.all
-
-  @all = []
-
-  allDirty.each do |item|
-    el = destroyRecords(item)
-    if el
-
-      if item.passwordIsActive == 'on'
-        item.content = item.content.length.times.map { [*'0'..'9', *'a'..'z'].sample }.join
-      end
-
-      @all.push(item)
-    end
-  end
-  # pry
-  erb :indexPage
-end
-
-
-post '/create' do
-
-  if params[:message].to_s.strip.length == 0
-    redirect '/'
-  end
-
-  @data = Table.new
-  @data.content = params[:message]
-  @data.whenDelete = params[:whenDelete]
-  @data.timeStamp = DateTime.now.to_time.to_i
-  @data.passwordIsActive = params[:passwordIsActive]
-  @data.password = params[:password]
-  @data.save
-
-  @data.hashId = @data.id.to_s.to_sha1
-  @data.save
-
-  redirect '/'
-end
-
-
-get '/create' do
-  erb :create
-end
 
 def destroyRecords(recordItem)
   if recordItem.whenDelete == 'deleteInHour'
@@ -76,24 +31,133 @@ def destroyRecords(recordItem)
   return recordItem
 end
 
-
-before '/message/:id' do
-  begin
-    @showItems = Table.where(hashId: params[:id])
-    puts @showItems
-    puts @showItems.count
-    if @showItems.count > 0
-      @showItem = destroyRecords(@showItems.first)
+def checkAndAddFakeDate(recordItem, message)
+  if recordItem.passwordIsActive == 'on'
+    if message.length >= 35
+      recordItem.fakeContent = 35.times.map { [*'0'..'9', *'a'..'z'].sample }.join
     else
-      @showItem = nil
+      recordItem.fakeContent = message.length.times.map { [*'0'..'9', *'a'..'z'].sample }.join
     end
-  rescue ActiveRecord::RecordNotFound
-    @showItem = nil
   end
 end
 
-get '/message/:id' do
+def checkAndAddFakeId(recordItem)
+  if recordItem.passwordIsActive == 'on'
+    recordItem.fakeLinkId = recordItem.hashId.length.times.map { [*'0'..'9', *'a'..'z'].sample }.join
+  end
+end
+
+
+def AESMessage(recordItem, decrypt)
+
+  if decrypt
+    if recordItem.passwordIsActive == 'on'
+      recordItem.content = AES.decrypt(recordItem.content, recordItem.password)
+    else
+      recordItem.content = AES.decrypt(recordItem.content,' ')
+    end
+
+  else
+    if recordItem.passwordIsActive == 'on'
+      recordItem.content = AES.encrypt(recordItem.content, recordItem.password)
+    else
+      recordItem.content = AES.encrypt(recordItem.content,' ')
+    end
+  end
+
+end
+
+# --------------------------------- ROUTING -----------------------------------
+
+get '/' do
+  allDirty = Table.all
+
+  @all = []
+
+  allDirty.each do |item|
+    el = destroyRecords(item)
+    if el
+      @all.push(item)
+    end
+  end
+
+  @length = @all.count
+  # pry
+  erb :indexPage
+end
+
+
+post '/create' do
+
+  if params[:message].to_s.strip.length == 0
+    redirect '/'
+  end
+
+  @data = Table.new
+
+  @data.whenDelete = params[:whenDelete]
+  @data.timeStamp = DateTime.now.to_time.to_i
+  @data.passwordIsActive = params[:passwordIsActive]
+  @data.password = params[:password]
+  @data.content = params[:message]
+
+  AESMessage(@data, false)
+  checkAndAddFakeDate(@data, params[:message])
+
+  @data.save
+
+  @data.hashId = @data.id.to_s.to_sha1
+  checkAndAddFakeId(@data)
+
+  @data.save
+
+  redirect '/'
+end
+
+
+get '/create' do
+  erb :create
+end
+
+before '/message/:id/?:security?' do
+  if  params[:security]
+    begin
+      @showItems = Table.where(fakeLinkId: params[:id])
+      if @showItems.count > 0
+        @showItem = destroyRecords(@showItems.first)
+      else
+        @showItem = nil
+      end
+    rescue ActiveRecord::RecordNotFound
+      @showItem = nil
+    end
+
+  else
+    begin
+      @showItems = Table.where(hashId: params[:id])
+      if @showItems.count > 0
+        @showItem = destroyRecords(@showItems.first)
+      else
+        @showItem = nil
+      end
+
+      if @showItem.passwordIsActive == 'on'
+        # якщо ми хочемо отримати рекорд по звичному айді але в нас стоїть перевірка на пароль показуємо помилку
+        # ToDo -> можна добавити редірект на повторне введення пароля))) для хітрожопих
+        @showItem = nil
+      end
+    rescue ActiveRecord::RecordNotFound
+      @showItem = nil
+    end
+  end
+
+end
+
+get '/message/:id/?:security?' do
   if @showItem
+
+    AESMessage(@showItem, true)
+
     erb :show
   else
     erb :messageIsDelete
@@ -101,7 +165,7 @@ get '/message/:id' do
 
 end
 
-after '/message/:id' do
+after '/message/:id/?:security?' do
   if @showItem
     if @showItem.whenDelete == 'deleteAfterFirstVisited'
       @showItem.destroy
@@ -111,13 +175,27 @@ end
 
 get '/edit/:id' do
   @getid = Table.where(hashId: params[:id]).first
+
+  if @getid[:passwordIsActive] == 'on'
+    @getid.content = AES.encrypt(@getid.content, @getid.password)
+  else
+    @getid.content = AES.encrypt(@getid.content, ' ')
+  end
+
   erb :edit
 end
 
-put '/:id' do
+put '/edit/:id' do
   @data1 = Table.where(hashId: params[:id]).first
+
   @data1.content = params[:message]
   @data1.whenDelete = params[:whenDelete]
+
+  @data1.passwordIsActive = params[:passwordIsActive]
+  @data1.password = params[:password]
+
+  checkAndAddFakeDate(@data1)
+
   @data1.save
 
   redirect '/'
@@ -135,6 +213,14 @@ delete '/:id' do
   redirect '/'
 end
 
+post '/check-record' do
+  @record = Table.where(hashId: params[:idRecordItem]).first
+  if @record.password == params[:inputPassword]
+    redirect '/message/' + @record.fakeLinkId + '/true'
+  else
+    redirect '/'
+  end
+end
 
 error ActiveRecord::RecordNotFound do
   redirect '/'

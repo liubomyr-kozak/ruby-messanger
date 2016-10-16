@@ -5,6 +5,8 @@ gem 'rake'
 gem 'pry'
 gem 'rickshaw'
 gem 'sinatra-activerecord'
+gem 'aes'
+
 
 group :development do
   gem "sqlite3"

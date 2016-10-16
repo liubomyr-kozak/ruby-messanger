@@ -12,15 +12,20 @@
 
 			<% if item.passwordIsActive == 'on' %>
 				<div class="message_item ">
-				  <input type="text" class="pass_set_input" placeholder="please put the password"/>
-				  <span class="blur-me">
-				  		<%= item.content %>
-				  </span>
-				</div>
 
-				<!--<a class="message_item" href="message/<%#= item.hashId %>">-->
-				<!---->
-				<!--</a>-->
+				  <form action="/check-record" method="post">
+					 <input type="text" class="pass_set_input" name="inputPassword" placeholder="please put the password"/>
+					 <input type="text" name="idRecordItem" value="<%= item.hashId %>" hidden=""/>
+					  <span class="blur-me">
+							<%= item.fakeContent %>
+					  </span>
+
+
+					 <input class='enter_password_btn' type="submit" value=""/>
+
+				  </form>
+
+				</div>
 			<% end %>
 
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>

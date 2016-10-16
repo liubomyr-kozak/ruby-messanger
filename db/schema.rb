@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161012204506) do
+ActiveRecord::Schema.define(version: 20161016090618) do
 
   create_table "tables", force: :cascade do |t|
     t.string "content"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20161012204506) do
     t.string "hashId"
     t.string "passwordIsActive"
     t.string "password"
+    t.string "fakeContent"
+    t.string "fakeLinkId"
   end
 
 end
