@@ -121,6 +121,12 @@ get '/create' do
   erb :create
 end
 
+
+get '/check-password/:id' do
+  @itemHashId = params[:id]
+  erb :checkpass
+end
+
 before '/message/:id/?:security?' do
   if  params[:security]
     begin
@@ -141,9 +147,9 @@ before '/message/:id/?:security?' do
         @showItem = destroyRecords(@showItems.first)
 
         if @showItem.passwordIsActive == 'on'
-          # якщо ми хочемо отримати рекорд по звичному айді але в нас стоїть перевірка на пароль показуємо помилку
-          # ToDo -> можна добавити редірект на повторне введення пароля))) для хітрожопих
+          hashId = @showItem.hashId
           @showItem = nil
+          redirect '/check-password/' + hashId
         end
       else
         @showItem = nil
@@ -153,7 +159,6 @@ before '/message/:id/?:security?' do
       @showItem = nil
     end
   end
-
 end
 
 get '/message/:id/?:security?' do
@@ -180,7 +185,6 @@ end
 get '/edit/:id' do
   @getid = Table.where(hashId: params[:id]).first
 
-
   AESMessage(@getid, true)
 
   erb :edit
@@ -195,9 +199,9 @@ put '/edit/:id' do
   @data1.passwordIsActive = params[:passwordIsActive]
   @data1.password = params[:password]
 
-  AESMessage(@data1, false)
   checkAndAddFakeDate(@data1, @data1.content)
   checkAndAddFakeId(@data1)
+  AESMessage(@data1, false)
 
   @data1.save
 

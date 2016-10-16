@@ -8,9 +8,7 @@
 				<a class="message_item" href="message/<%= item.hashId %>">
 				  <%= item.content %>
 				</a>
-			<% end %>
-
-			<% if item.passwordIsActive == 'on' %>
+			<% else %>
 				<div class="message_item ">
 
 				  <form action="/check-record" method="post">
@@ -19,18 +17,16 @@
 					  <span class="blur-me">
 							<%= item.fakeContent %>
 					  </span>
-
-
 					 <input class='enter_password_btn' type="submit" value=""/>
 
 				  </form>
 
 				</div>
+
 			<% end %>
 
+			<button class="shared_btn" onclick='window.prompt("Copy to clipboard: Ctrl+C, Enter", document.location.href + "message/<%= item.hashId %>")'></button>
 			<a class="edit_btn" href="/edit/<%= item.hashId %>"></a>
-			<%#= item.passwordIsActive %>
-			<%#= item.password %>
 			<a class="destroy" href="/<%= item.hashId %>/delete"></a>
 		 </div>
 	  </li>

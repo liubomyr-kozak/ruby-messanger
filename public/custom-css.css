@@ -25,7 +25,7 @@
 
 	top: 10px;
 	right: 10px;
-	width: 47px;
+	width: 80px;
 	height: 40px;
 	background: #fff;
 	border: 0 none;
@@ -143,6 +143,7 @@ input[type=submit].todoapp_delete_btn:hover {
 }
 .blur-me {
 	filter: blur(3px);
+	white-space: nowrap;
 }
 /*-----------------     RADIO BTN      --------------*/
 /*https://kyusuf.com/post/completely-css-custom-checkbox-radio-buttons-and-select-boxes*/
@@ -288,7 +289,7 @@ input[type=submit].todoapp_delete_btn:hover {
 	text-decoration: none;
 	color: #4d4d4d;
 	word-break: break-all;
-	padding: 15px 60px 15px 17px;
+	padding: 15px 90px 15px 17px;
 	display: block;
 	line-height: 1.2;
 	transition: color 0.4s;
@@ -309,7 +310,7 @@ input[type=submit].todoapp_delete_btn:hover {
 	right: 0;
 	opacity: 0;
 	font-size: 24px;
-	padding: 15px 60px 15px 17px;
+	padding: 15px 90px 15px 17px;
 	width: 100%;
 	box-sizing: border-box;
 	z-index: 1;
@@ -437,4 +438,40 @@ input[type=submit].todoapp_delete_btn:hover {
 
 .message_item :placeholder-shown { /* Standard one last! */
 	color: #6a4f6a!important;
+}
+
+
+.shared_btn{
+	display: none;
+	top: 11px;
+	position: absolute;
+	right: 58px;
+	width: 32px;
+	z-index: 2;
+	height: 40px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDU1IDU1IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1NSA1NTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8cGF0aCBkPSJNNDksMGMtMy4zMDksMC02LDIuNjkxLTYsNmMwLDEuMDM1LDAuMjYzLDIuMDA5LDAuNzI2LDIuODZsLTkuODI5LDkuODI5QzMyLjU0MiwxNy42MzQsMzAuODQ2LDE3LDI5LDE3ICBzLTMuNTQyLDAuNjM0LTQuODk4LDEuNjg4bC03LjY2OS03LjY2OUMxNi43ODUsMTAuNDI0LDE3LDkuNzQsMTcsOWMwLTIuMjA2LTEuNzk0LTQtNC00UzksNi43OTQsOSw5czEuNzk0LDQsNCw0ICBjMC43NCwwLDEuNDI0LTAuMjE1LDIuMDE5LTAuNTY3bDcuNjY5LDcuNjY5QzIxLjYzNCwyMS40NTgsMjEsMjMuMTU0LDIxLDI1czAuNjM0LDMuNTQyLDEuNjg4LDQuODk3TDEwLjAyNCw0Mi41NjIgIEM4Ljk1OCw0MS41OTUsNy41NDksNDEsNiw0MWMtMy4zMDksMC02LDIuNjkxLTYsNnMyLjY5MSw2LDYsNnM2LTIuNjkxLDYtNmMwLTEuMDM1LTAuMjYzLTIuMDA5LTAuNzI2LTIuODZsMTIuODI5LTEyLjgyOSAgYzEuMTA2LDAuODYsMi40NCwxLjQzNiwzLjg5OCwxLjYxOXYxMC4xNmMtMi44MzMsMC40NzgtNSwyLjk0Mi01LDUuOTFjMCwzLjMwOSwyLjY5MSw2LDYsNnM2LTIuNjkxLDYtNmMwLTIuOTY3LTIuMTY3LTUuNDMxLTUtNS45MSAgdi0xMC4xNmMxLjQ1OC0wLjE4MywyLjc5Mi0wLjc1OSwzLjg5OC0xLjYxOWw3LjY2OSw3LjY2OUM0MS4yMTUsMzkuNTc2LDQxLDQwLjI2LDQxLDQxYzAsMi4yMDYsMS43OTQsNCw0LDRzNC0xLjc5NCw0LTQgIHMtMS43OTQtNC00LTRjLTAuNzQsMC0xLjQyNCwwLjIxNS0yLjAxOSwwLjU2N2wtNy42NjktNy42NjlDMzYuMzY2LDI4LjU0MiwzNywyNi44NDYsMzcsMjVzLTAuNjM0LTMuNTQyLTEuNjg4LTQuODk3bDkuNjY1LTkuNjY1ICBDNDYuMDQyLDExLjQwNSw0Ny40NTEsMTIsNDksMTJjMy4zMDksMCw2LTIuNjkxLDYtNlM1Mi4zMDksMCw0OSwweiBNMTEsOWMwLTEuMTAzLDAuODk3LTIsMi0yczIsMC44OTcsMiwycy0wLjg5NywyLTIsMiAgUzExLDEwLjEwMywxMSw5eiBNNiw1MWMtMi4yMDYsMC00LTEuNzk0LTQtNHMxLjc5NC00LDQtNHM0LDEuNzk0LDQsNFM4LjIwNiw1MSw2LDUxeiBNMzMsNDljMCwyLjIwNi0xLjc5NCw0LTQsNHMtNC0xLjc5NC00LTQgIHMxLjc5NC00LDQtNFMzMyw0Ni43OTQsMzMsNDl6IE0yOSwzMWMtMy4zMDksMC02LTIuNjkxLTYtNnMyLjY5MS02LDYtNnM2LDIuNjkxLDYsNlMzMi4zMDksMzEsMjksMzF6IE00Nyw0MWMwLDEuMTAzLTAuODk3LDItMiwyICBzLTItMC44OTctMi0yczAuODk3LTIsMi0yUzQ3LDM5Ljg5Nyw0Nyw0MXogTTQ5LDEwYy0yLjIwNiwwLTQtMS43OTQtNC00czEuNzk0LTQsNC00czQsMS43OTQsNCw0UzUxLjIwNiwxMCw0OSwxMHoiIGZpbGw9IiMwMDAwMDAiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+}
+
+.todo-list li:hover .shared_btn{
+	display: block;
+}
+
+
+.active-pass-field{
+	height: 60px;
+	position: relative;
+
+}
+.active-pass-field .pass_set_input{
+	display: block;
+	opacity: 1;
+
+}
+
+.active-pass-field .enter_password_btn{
+	display: block;
+	opacity: 1;
 }
