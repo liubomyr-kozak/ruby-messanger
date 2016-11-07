@@ -6,7 +6,6 @@ require "sinatra/activerecord"
 require "aes"
 
 class Table<ActiveRecord::Base
-
 end
 
 set :root, File.dirname(__FILE__)
